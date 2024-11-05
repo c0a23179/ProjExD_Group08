@@ -3,6 +3,26 @@ import sys
 
 import pygame as pg
 
+def limit_time():
+    time.sleep(180)
+    return "timeover"    
+
+def bgm_play(bgm_name):
+    import pygame
+    pygame.mixer.music.load(bgm_name)
+    pygame.mixer.music.play(-1)
+
+def bgm_change(scene):
+    
+    if scene == "TITLE":
+        bgm_play(TITLE_GBM)
+    elif scene == "GAME":
+        bgm_play(game_bgm)
+    elif scene == "RESYLT":
+        bgm_play(result_bgm)
+        
+        
+game_scene = "TITLE"
 
 WIDTH, HEIGHT = 750, 700
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
